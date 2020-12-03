@@ -44,7 +44,7 @@ namespace _01_DevTeam_Repo
         }
 
         //Delete
-        public bool RemoveDevTeamFromList(string devTeamNumber, string teamName)
+        public bool RemoveDevTeamFromList(string devTeamNumber)
         {
             DevTeam teamNum = GetTeamByID(devTeamNumber);
 

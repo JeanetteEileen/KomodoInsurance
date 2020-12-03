@@ -46,7 +46,7 @@ namespace _01_KomodoInsurance_Repository
 
 
         //Delete
-        public bool RemoveDeveloperFromList(string companyID, string lastName)
+        public bool RemoveDeveloperFromList(string companyID)
         {
             Developer member = GetMemberByID(companyID);
             
@@ -80,6 +80,6 @@ namespace _01_KomodoInsurance_Repository
 
             return null;
         }
-        
+
     }
 }

@@ -13,8 +13,7 @@ namespace _01_DevTeam_Repo
         public string DevTeamNumber { get; set; }
         public List<Developer> Members { get; set; }
 
-        public DevTeam()
-        {
+        public DevTeam()        {
 
         }
         public DevTeam(string devTeamName, string devTeamNumber, List<Developer> members)

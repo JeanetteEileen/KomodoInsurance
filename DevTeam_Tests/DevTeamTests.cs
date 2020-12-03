@@ -9,13 +9,13 @@ namespace DevTeam_Tests
     public class DevTeamTests
     {
         private DevTeamRepo _repo;
-        private DevTeamList _team;
+        private DevTeam _team;
 
         [TestInitialize]
         public void Prep()
         {
             _repo = new DevTeamRepo();
-            _team = new DevTeamList("Team 1", "1 d");
+            _team = new DevTeam();
 
             _repo.AddDevTeamsToList(_team);
         }
@@ -25,13 +25,13 @@ namespace DevTeam_Tests
         public void AddToDevTeamList_ShoultNotGetNull()
         {
             //Arrange
-            DevTeamList name = new DevTeamList();
+            DevTeam name = new DevTeam();
             name.DevTeamName = "Team 1";
             DevTeamRepo repo = new DevTeamRepo();
 
             //Act by add
             repo.AddDevTeamsToList(name);
-            List<DevTeamList> teamsFromRepo = repo.GetDevTeamList(); 
+            List<DevTeam> teamsFromRepo = repo.GetDevTeamList(); 
 
             //Assert
             //Assert.IdNotNull(teamsFromRepo);
@@ -44,7 +44,7 @@ namespace DevTeam_Tests
             // Arrange
             // TestInitialize
             Prep();
-            DevTeamList newTeam = new DevTeamList("Team 1", "1 a");
+            DevTeam newTeam = new DevTeam();
 
             //Act
             bool updateTeam = _repo.UpdateExistingDevTeamList("1 d", newTeam);
@@ -60,7 +60,7 @@ namespace DevTeam_Tests
             // Arrange
             // TestInitialize
             Prep();
-            DevTeamList newTeam = new DevTeamList("Team 1", "1 a");
+            DevTeam newTeam = new DevTeam();
 
             //Act
             bool updateTeam = _repo.UpdateExistingDevTeamList("1 d", newTeam);

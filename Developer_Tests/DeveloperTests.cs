@@ -10,7 +10,7 @@ namespace Developer_Tests
         [TestMethod]
         public void SetDeveloperCompanyID_ShouldGetCorrectID()
         {
-            DeveloperList id = new DeveloperList();
+            Developer id = new Developer();
 
             id.CompanyID = "123456D";
 
@@ -22,7 +22,7 @@ namespace Developer_Tests
         [TestMethod]
         public void SetDeveloperFirstName_ShouldGetCorrectName()
         {
-            DeveloperList firstName = new DeveloperList();
+            Developer firstName = new Developer();
 
             firstName.FirstName = "Joe";
 
@@ -34,19 +34,19 @@ namespace Developer_Tests
         [TestMethod]
         public void SetDeveloperLasttName_ShouldGetCorrectLastName()
         {
-            DeveloperList lastName = new DeveloperList();
+        Developer lastName = new Developer();
 
-            lastName.LastName = "Smith";
+        lastName.LastName = "Smith";
 
-            string expectedLast = "Smith";
-            string actualLast = lastName.LastName;
+        string expectedLast = "Smith";
+        string actualLast = lastName.LastName;
 
-            Assert.AreEqual(expectedLast, actualLast);
+        Assert.AreEqual(expectedLast, actualLast);
         }
         [TestMethod]
         public void Pluralsight_Shouldgettrue()
         {
-            DeveloperList plural = new DeveloperList();
+            Developer plural = new Developer();
 
             plural.Pluralsight = "yes";
 
