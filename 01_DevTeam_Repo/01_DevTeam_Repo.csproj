@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DevTeamListRepo.cs" />
-    <Compile Include="DevTeamList.cs" />
+    <Compile Include="DevTeamRepo.cs" />
+    <Compile Include="DevTeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

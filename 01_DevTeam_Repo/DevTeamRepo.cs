@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 
 namespace _01_DevTeam_Repo
 {
-    public class DevTeamListRepo
+    public class DevTeamRepo
     {
-        public List<DevTeamList> _listOfTeam = new List<DevTeamList>();
+        public List<DevTeam> _listOfTeam = new List<DevTeam>();
 
         //Create
-        public void AddDevTeamsToList(DevTeamList team)
+        public void AddDevTeamsToList(DevTeam team)
         {
             _listOfTeam.Add(team);
 
         }
 
         //Read
-        public List<DevTeamList> GetDevTeamList()
+        public List<DevTeam> GetDevTeamList()
         {
             return _listOfTeam;
         }
 
         //Update
-        public bool UpdateExistingDevTeamList(string originalTeamList, DevTeamList newTeamList)
+        public bool UpdateExistingDevTeamList(string originalTeamList, DevTeam newTeamList)
         {
             //Find member list
-            DevTeamList oldList = GetTeamByID(originalTeamList);
+            DevTeam oldList = GetTeamByID(originalTeamList);
 
             //Update member list
             if (oldList != null)
@@ -46,7 +46,7 @@ namespace _01_DevTeam_Repo
         //Delete
         public bool RemoveDevTeamFromList(string devTeamNumber, string teamName)
         {
-            DevTeamList teamNum = GetTeamByID(devTeamNumber);
+            DevTeam teamNum = GetTeamByID(devTeamNumber);
 
             if (teamNum == null)
             {
@@ -66,9 +66,9 @@ namespace _01_DevTeam_Repo
         }
 
         //helper method
-        private DevTeamList GetTeamByID(string devTeamNumber)
+        private DevTeam GetTeamByID(string devTeamNumber)
         {
-            foreach (DevTeamList team in _listOfTeam)
+            foreach (DevTeam team in _listOfTeam)
             {
                 if (team.DevTeamNumber == devTeamNumber)
                 {

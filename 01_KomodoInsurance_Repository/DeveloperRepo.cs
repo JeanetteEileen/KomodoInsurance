@@ -6,40 +6,36 @@ using System.Threading.Tasks;
 
 namespace _01_KomodoInsurance_Repository
 {
-    public class DeveloperListRepo
+    public class DeveloperRepo
     {
-        private List<DeveloperList> _listOfDevelopers = new List<DeveloperList>();
+        private List<Developer> _listOfDevelopers = new List<Developer>();
 
         //Create
-        public void AddDevelopersToList(DeveloperList member)
+        public void AddDevelopersToList(Developer member)
         {
             _listOfDevelopers.Add(member);
 
         }
 
         //Read
-        public List<DeveloperList> GetDeveloperList()
+        public List<Developer> GetDeveloperList()
         {
             return _listOfDevelopers;
         }
 
         //UPdate
-        public bool UpdateExistingDeveloperList(string originalDeveloperList, DeveloperList newDeveloperList)
+        public bool UpdateExistingDeveloperList(string originalDeveloperList, Developer newDeveloperList)
         {
             //Find member list
-            DeveloperList oldList = GetMemberByID(originalDeveloperList);
+            Developer oldList = GetMemberByID(originalDeveloperList);
 
             //Update member list
             if (oldList != null)
             {
                 oldList.FirstName = newDeveloperList.FirstName;
                 oldList.LastName = newDeveloperList.LastName;
-                oldList.Pluralsight = newDeveloperList.Pluralsight;
                 oldList.CompanyID = newDeveloperList.CompanyID;
-                oldList.DevTeamId = newDeveloperList.DevTeamId;
-                oldList.DevTeamName = newDeveloperList.DevTeamName;
-                oldList.Pluralsight = newDeveloperList.Pluralsight;
-                oldList.PluralsightExpiration = newDeveloperList.PluralsightExpiration;
+                oldList.Pluralsight = newDeveloperList.Pluralsight;               
                 return true;
             }
             else
@@ -52,7 +48,7 @@ namespace _01_KomodoInsurance_Repository
         //Delete
         public bool RemoveDeveloperFromList(string companyID, string lastName)
         {
-            DeveloperList member = GetMemberByID(companyID);
+            Developer member = GetMemberByID(companyID);
             
             if (member == null)
             {
@@ -72,9 +68,9 @@ namespace _01_KomodoInsurance_Repository
         }
 
         //Helper method
-        private DeveloperList GetMemberByID(string companyID)
+        private Developer GetMemberByID(string companyID)
         {
-            foreach (DeveloperList member in _listOfDevelopers)
+            foreach (Developer member in _listOfDevelopers)
             {
                 if(member.CompanyID == companyID)
                 {

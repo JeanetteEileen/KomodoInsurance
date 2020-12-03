@@ -8,13 +8,13 @@ namespace DevTeam_Tests
     [TestClass]
     public class DevTeamTests
     {
-        private DevTeamListRepo _repo;
+        private DevTeamRepo _repo;
         private DevTeamList _team;
 
         [TestInitialize]
         public void Prep()
         {
-            _repo = new DevTeamListRepo();
+            _repo = new DevTeamRepo();
             _team = new DevTeamList("Team 1", "1 d");
 
             _repo.AddDevTeamsToList(_team);
@@ -27,7 +27,7 @@ namespace DevTeam_Tests
             //Arrange
             DevTeamList name = new DevTeamList();
             name.DevTeamName = "Team 1";
-            DevTeamListRepo repo = new DevTeamListRepo();
+            DevTeamRepo repo = new DevTeamRepo();
 
             //Act by add
             repo.AddDevTeamsToList(name);

@@ -44,30 +44,6 @@ namespace Developer_Tests
             Assert.AreEqual(expectedLast, actualLast);
         }
         [TestMethod]
-        public void SetDevTeamID_ShouldGetCorrectID()
-        {
-            DeveloperList teamid = new DeveloperList();
-
-            teamid.DevTeamId = "1d";
-
-            string expectedID = "1d";
-            string actualID = teamid.DevTeamId;
-
-            Assert.AreEqual(expectedID, actualID);
-        }
-        [TestMethod]
-        public void SetDevTeamName_ShouldGetCorrectName() 
-        {
-            DeveloperList teamName = new DeveloperList();
-
-            teamName.DevTeamName = "Team 1";
-
-            string expectTeamName = "Team 1";
-            string actualTeamName = teamName.DevTeamName;
-
-            Assert.AreEqual(expectTeamName, actualTeamName);
-        }
-        [TestMethod]
         public void Pluralsight_Shouldgettrue()
         {
             DeveloperList plural = new DeveloperList();

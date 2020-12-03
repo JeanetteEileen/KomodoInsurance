@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace _01_KomodoInsurance_Repository
 {
     //POCO for Developers
-    public class DeveloperList
+    public class Developer
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -15,18 +15,13 @@ namespace _01_KomodoInsurance_Repository
         public string DevTeamId { get; set; }
         public string DevTeamName { get; set; }
         public string Pluralsight { get; set; }
-        public DateTime PluralsightExpiration { get; set; }
-
-        public DeveloperList() { }
-        public DeveloperList(string firstName, string lastName, string companyID, string devTeamID, string devTeamName, string pluralsight, DateTime pluralsightExpiration)  
+        public Developer() { }
+        public Developer(string firstName, string lastName, string companyID, string pluralsight)
         {
             FirstName = firstName;
             LastName = lastName;
             CompanyID = companyID;
-            DevTeamId = devTeamID;
-            DevTeamName = devTeamName;
             Pluralsight = pluralsight;
-            PluralsightExpiration = pluralsightExpiration;
         }
     }
 }

@@ -50,5 +50,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\01_DevTeam_Repo\01_DevTeam_Repo.csproj">
+      <Project>{f03a3af6-993c-4a87-b7c8-a087924cac3c}</Project>
+      <Name>01_DevTeam_Repo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\01_KomodoInsurance_Repository\01_Developer_Repo.csproj">
+      <Project>{61174e79-3973-4150-9fad-dc90761a80ba}</Project>
+      <Name>01_Developer_Repo</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
