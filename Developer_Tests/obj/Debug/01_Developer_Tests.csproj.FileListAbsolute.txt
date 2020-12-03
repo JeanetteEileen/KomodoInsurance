@@ -1,0 +1,16 @@
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\Developer_Tests.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\Developer_Tests.pdb
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\01_KomodoInsurance_Repository.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\01_KomodoInsurance_Repository.pdb
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\obj\Debug\01_Developer_Tests.csprojAssemblyReference.cache
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\obj\Debug\01_Developer_Tests.csproj.CoreCompileInputs.cache
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\obj\Debug\01_Developer_Tests.csproj.CopyComplete
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\obj\Debug\Developer_Tests.dll
+C:\ElevenFiftyProjects\DotNetProjects\KomodoInsurance\Developer_Tests\obj\Debug\Developer_Tests.pdb
