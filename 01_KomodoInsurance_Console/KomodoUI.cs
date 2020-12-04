@@ -81,7 +81,6 @@ namespace _01_KomodoInsurance_Console
                     case "9":
                         // Remove Developer from Team
                         RemoveDeveloperFromTeam();
-
                         break;
                     case "10":
                         // Remove Developer from List
@@ -150,22 +149,40 @@ namespace _01_KomodoInsurance_Console
         //Add Team Name
         private void AddNewTeam()
         {
+       
             DevTeam newDevTeam = new DevTeam();
             // Get Dev Team Name
             Console.WriteLine("What is new Team name: ");
             newDevTeam.DevTeamName = Console.ReadLine().ToLower();
             //Add Dev Team ID
             Console.WriteLine("What is new Teamm ID: ");
-            newDevTeam.DevTeamNumber = Console.ReadLine().ToLower();
-
+            newDevTeam.DevTeamID = Console.ReadLine().ToLower();
 
             _devTeamRepo.AddDevTeamsToList(newDevTeam);
         }
 
         //Add Team Members
-        private void AddTeamMembers()
+        private void AddTeamMembers()  //needs work
         {
+            Console.Clear();
+            List<DevTeam> listOfTeams = _devTeamRepo.GetDevTeamList();
 
+            foreach (DevTeam team in listOfTeams)
+            {
+                Console.WriteLine($"Team Name: {team.DevTeamName}\n" +
+                    $"Team ID: {team.DevTeamID}\n" +
+                    $"");
+                Console.WriteLine("Which team do you want to add members?  please give the TeamID");
+                string newteam = Console.ReadLine().ToLower();
+
+                Console.WriteLine("Which developer CompanyID do you want to add to the team?");
+                string newMember = Console.ReadLine();
+
+               
+
+               
+
+            }
         }
 
         //View List of Developers
@@ -180,10 +197,8 @@ namespace _01_KomodoInsurance_Console
                     $"CompanyID: { developer.CompanyID}\n" +
                     $"Pluralsight: {developer.Pluralsight}\n" +
                     $"");
-
             }
-
-; }
+        }
 
         //View Team Names
         private void ViewTeamNames()
@@ -194,7 +209,7 @@ namespace _01_KomodoInsurance_Console
             foreach (DevTeam team in listOfTeams)
             {
                 Console.WriteLine($"Team Name: {team.DevTeamName}\n" +
-                    $"Team ID: {team.DevTeamNumber}\n" +
+                    $"Team ID: {team.DevTeamID}\n" +
                     $"");
             }
 
@@ -213,15 +228,17 @@ namespace _01_KomodoInsurance_Console
 
             foreach (Developer developer in listOfDevelopers)
             {
-                if (developer.Pluralsight == "no")
+                string plural = developer.Pluralsight;
+                if (plural == "no")
                 {
                     Console.WriteLine($"Name: {developer.FirstName} {developer.LastName}\n" +
-                    $"CompanyID: { developer.CompanyID}\n" +
-                    $"Pluralsight: {developer.Pluralsight}");
+                $"CompanyID: { developer.CompanyID}\n" +
+                $"Pluralsight: {developer.Pluralsight}\n" +
+                $"");
                 }
                 else
                 {
-                    break;
+                    break;  
                 }
                 Console.WriteLine("All Developers have Pluralsight");
             }
@@ -292,7 +309,7 @@ namespace _01_KomodoInsurance_Console
             foreach (DevTeam team in listOfTeams)
             {
                 Console.WriteLine($"Team Name: {team.DevTeamName}\n" +
-                    $"Team ID: {team.DevTeamNumber}\n" +
+                    $"Team ID: {team.DevTeamID}\n" +
                     $"");
             }
             Console.WriteLine("Which DevTeam do you want to remove from the list? (please provide DevTeam ID");

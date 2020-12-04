@@ -76,7 +76,7 @@ namespace DevTeam_Tests
             
             // Act
 
-            bool deleteTeam = _repo.RemoveDevTeamFromList("1 d", "Team 1");
+            bool deleteTeam = _repo.RemoveDevTeamFromList("1 d");
 
             // Assert
             Assert.IsTrue(deleteTeam);

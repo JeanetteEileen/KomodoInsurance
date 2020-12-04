@@ -16,7 +16,22 @@ namespace _01_DevTeam_Repo
             _listOfTeam.Add(team);
 
         }
+        //Build Team
+        public void AddDevelopersToTeam(string devTeamID, string companyID)
 
+        {
+            //Find team to add developers to
+
+            GetDevTeamList();
+           
+            //Pick team to add developer to
+            GetTeamByID(devTeamID);
+
+            //Get Developer ID
+            GetMemberByID(companyID);
+
+            //Add developer to team
+        }
         //Read
         public List<DevTeam> GetDevTeamList()
         {
@@ -33,7 +48,7 @@ namespace _01_DevTeam_Repo
             if (oldList != null)
             {
                 oldList.DevTeamName = newTeamList.DevTeamName;
-                oldList.DevTeamNumber = newTeamList.DevTeamNumber;
+                oldList.DevTeamID = newTeamList.DevTeamID;
                 
                 return true;
             }
@@ -42,11 +57,11 @@ namespace _01_DevTeam_Repo
                 return false;
             }
         }
-
+         
         //Delete
-        public bool RemoveDevTeamFromList(string devTeamNumber)
+        public bool RemoveDevTeamFromList(string devTeamID)
         {
-            DevTeam teamNum = GetTeamByID(devTeamNumber);
+            DevTeam teamNum = GetTeamByID(devTeamID);
 
             if (teamNum == null)
             {
@@ -66,11 +81,11 @@ namespace _01_DevTeam_Repo
         }
 
         //helper method
-        private DevTeam GetTeamByID(string devTeamNumber)
+        private DevTeam GetTeamByID(string devTeamID)
         {
             foreach (DevTeam team in _listOfTeam)
             {
-                if (team.DevTeamNumber == devTeamNumber)
+                if (team.DevTeamID == devTeamID)
                 {
                     return team;
                 }

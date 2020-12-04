@@ -68,7 +68,7 @@ namespace _01_KomodoInsurance_Repository
         }
 
         //Helper method
-        private Developer GetMemberByID(string companyID)
+         public Developer GetMemberByID(string companyID)
         {
             foreach (Developer member in _listOfDevelopers)
             {
