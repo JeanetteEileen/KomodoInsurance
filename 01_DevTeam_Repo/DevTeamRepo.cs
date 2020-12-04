@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _01_KomodoInsurance_Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace _01_DevTeam_Repo
     public class DevTeamRepo
     {
         public List<DevTeam> _listOfTeam = new List<DevTeam>();
+        public DeveloperRepo devRepo = new DeveloperRepo();
 
         //Create
         public void AddDevTeamsToList(DevTeam team)
@@ -25,12 +27,13 @@ namespace _01_DevTeam_Repo
             GetDevTeamList();
            
             //Pick team to add developer to
-            GetTeamByID(devTeamID);
+            DevTeam newT = GetTeamByID(devTeamID);
 
             //Get Developer ID
-            GetMemberByID(companyID);
+            Developer newD = devRepo.GetMemberByID(companyID);
 
             //Add developer to team
+            newT.Members.Add(newD);
         }
         //Read
         public List<DevTeam> GetDevTeamList()

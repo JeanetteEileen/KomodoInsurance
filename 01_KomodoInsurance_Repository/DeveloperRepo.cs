@@ -43,7 +43,7 @@ namespace _01_KomodoInsurance_Repository
                 return false;
             }
         }
-
+     
 
         //Delete
         public bool RemoveDeveloperFromList(string companyID)
@@ -66,13 +66,12 @@ namespace _01_KomodoInsurance_Repository
                 return false;
             }
         }
-
         //Helper method
-         public Developer GetMemberByID(string companyID)
+        public Developer GetMemberByID(string companyID)
         {
             foreach (Developer member in _listOfDevelopers)
             {
-                if(member.CompanyID == companyID)
+                if (member.CompanyID == companyID)
                 {
                     return member;
                 }
@@ -80,6 +79,8 @@ namespace _01_KomodoInsurance_Repository
 
             return null;
         }
+
+
 
     }
 }
