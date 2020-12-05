@@ -10,7 +10,12 @@ namespace _01_DevTeam_Repo
     public class DevTeamRepo
     {
         public List<DevTeam> _listOfTeam = new List<DevTeam>();
-        public DeveloperRepo devRepo = new DeveloperRepo();
+        public DeveloperRepo devRepo;
+
+        public DevTeamRepo(DeveloperRepo d)
+        {
+            devRepo = d;
+        }
 
         //Create
         public void AddDevTeamsToList(DevTeam team)
@@ -88,7 +93,7 @@ namespace _01_DevTeam_Repo
         {
             foreach (DevTeam team in _listOfTeam)
             {
-                if (team.DevTeamID == devTeamID)
+                if (team.DevTeamID.Equals(devTeamID))
                 {
                     return team;
                 }

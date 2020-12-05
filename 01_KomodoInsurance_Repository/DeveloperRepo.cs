@@ -14,7 +14,6 @@ namespace _01_KomodoInsurance_Repository
         public void AddDevelopersToList(Developer member)
         {
             _listOfDevelopers.Add(member);
-
         }
 
         //Read
@@ -71,7 +70,7 @@ namespace _01_KomodoInsurance_Repository
         {
             foreach (Developer member in _listOfDevelopers)
             {
-                if (member.CompanyID == companyID)
+                if (member.CompanyID.Equals(companyID))
                 {
                     return member;
                 }

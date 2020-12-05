@@ -11,16 +11,12 @@ namespace _01_DevTeam_Repo
     {
         public string DevTeamName { get; set; }
         public string DevTeamID { get; set; }
-        public List<Developer> Members { get; set; }
-
-        public DevTeam()        {
-
-        }
-        public DevTeam(string devTeamName, string devTeamID, List<Developer> members)
+        public List<Developer> Members = new List<Developer>();
+       
+        public DevTeam(string devTeamName, string devTeamID)
         {
             DevTeamName = devTeamName;
             DevTeamID = devTeamID;
-            Members = members;
             
         }
     }
