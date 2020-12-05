@@ -15,13 +15,14 @@ namespace _01_KomodoInsurance_Repository
         public string DevTeamId { get; set; }
         public string DevTeamName { get; set; }
         public string Pluralsight { get; set; }
-        public Developer() { }
+
         public Developer(string firstName, string lastName, string companyID, string pluralsight)
         {
             FirstName = firstName;
             LastName = lastName;
             CompanyID = companyID;
             Pluralsight = pluralsight;
+
         }
     }
 }

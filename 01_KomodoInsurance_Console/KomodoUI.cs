@@ -13,7 +13,7 @@ namespace _01_KomodoInsurance_Console
         private static DeveloperRepo _developerRepo = new DeveloperRepo();
         private DevTeamRepo _devTeamRepo = new DevTeamRepo(_developerRepo);
 
-      
+
         public void Run()
         {
             KomodoMenu();
@@ -102,7 +102,7 @@ namespace _01_KomodoInsurance_Console
                         break;
                 }
                 Console.WriteLine("Please Press any key to Continue...");
-                Console.ReadKey();              
+                Console.ReadKey();
                 Console.Clear();
             }
         }
@@ -112,47 +112,49 @@ namespace _01_KomodoInsurance_Console
             bool add = true;
             while (add)
             {
-                Developer newDeveloper = new Developer();
+               
                 // Get Developer first name
                 Console.WriteLine("Enter developer's first name:");
-                newDeveloper.FirstName = Console.ReadLine().ToLower();
+                string firstName = Console.ReadLine().ToLower();
 
                 // Get Developer last name
                 Console.WriteLine("Enter developer's last name:");
-                newDeveloper.LastName = Console.ReadLine().ToLower();
+                string lastName = Console.ReadLine().ToLower();
 
                 // Get Developer CompanyID
                 Console.WriteLine("Enter developer's Company ID");
-                newDeveloper.CompanyID = Console.ReadLine().ToLower();
+                string companyID = Console.ReadLine().ToLower();
 
                 // Get Pluralsight yes/no
                 Console.WriteLine("Does developer have Pluralsight license? (yes/no)");
-                newDeveloper.Pluralsight = Console.ReadLine().ToLower();
-                //string continu;
-                //do
-                //{
-                //    continu = Console.ReadLine().ToLower();
-                //    if (!continu.Equals("yes") && !continu.Equals("no"))
-                //    {
-                //        Console.WriteLine("Please enter yes or no");
-                //    }
-                //}
-                //while (!continu.Equals("yes") && !continu.Equals("no"));
+                string pluralsight = Console.ReadLine().ToLower();
 
-                //if (continu.Equals("yes"))
-                //{
-                //    add = true;
-               //}
-                //else if (continu.Equals("no"))
-                //{
-                //    add = false;
-                //}
-                
+                string contin1;
+                do
+                {
+                    contin1 = Console.ReadLine().ToLower();
+                    if (!contin1.Equals("yes") && !contin1.Equals("no"))
+                    {
+                        Console.WriteLine("Please enter yes or no");
+                    }
+                }
+                while (!contin1.Equals("yes") && !contin1.Equals("no"));
 
+                if (contin1.Equals("yes"))
+                {
+                    add = true;
+                }
+                else if (contin1.Equals("no"))
+                {
+                    add = false;
+                }
+
+
+                Developer newDeveloper = new Developer(firstName, lastName, companyID, pluralsight );
                 _developerRepo.AddDevelopersToList(newDeveloper);
 
                 //Add another developer
-                
+
 
                 string contin;
                 Console.WriteLine("Do you want to add another developer?");
@@ -189,7 +191,7 @@ namespace _01_KomodoInsurance_Console
                 Console.WriteLine("What is new Teamm ID: ");
                 string devTeamID = Console.ReadLine().ToLower();
 
-                
+
                 DevTeam newDevTeam = new DevTeam(devTeamName, devTeamID);
                 _devTeamRepo.AddDevTeamsToList(newDevTeam);
 
@@ -204,7 +206,7 @@ namespace _01_KomodoInsurance_Console
                     {
                         Console.WriteLine("Please enter yes or no");
                     }
-                } 
+                }
                 while (!contin.Equals("yes") && !contin.Equals("no"));
 
                 if (contin.Equals("yes"))
@@ -214,31 +216,34 @@ namespace _01_KomodoInsurance_Console
                 else if (contin.Equals("no"))
                 {
                     add = false;
-                } 
+                }
             }
         }
 
-        //Add Team Members  dpesmt work
-        private void AddTeamMembers()  
+        //Add Team Members  
+        private void AddTeamMembers()
         {
-            //Console.Clear();
+            //view teams
+            
+
             ViewTeamNames();
             List<DevTeam> listOfTeams = _devTeamRepo.GetDevTeamList();
 
-            Console.WriteLine("Which Team do you want to add memebers to?  please give Team ID");
+            Console.WriteLine("Which Team do you want to add memebers to?");
             string newT = Console.ReadLine().ToLower();
+            
 
-            ViewDeveloperList();
+                // view developers list
+                ViewDeveloperList();
 
-            Console.WriteLine("Which developer do you want to add?  Please give developers CompanyID");
-            string newD = Console.ReadLine().ToLower();
-            Console.WriteLine(newD);
+                Console.WriteLine("Which developer do you want to add?  Please give developers CompanyID");
+                string newD = Console.ReadLine().ToLower();
+            
+                //add developer to team
+                _devTeamRepo.AddDevelopersToTeam(newT, newD);
 
-            _devTeamRepo.AddDevelopersToTeam(newT, newD);
+                //add team number to developer
 
-
-
-     
         }
 
         //View List of Developers
@@ -259,7 +264,7 @@ namespace _01_KomodoInsurance_Console
         //View Team Names
         private void ViewTeamNames()
         {
-            
+
             List<DevTeam> listOfTeams = _devTeamRepo.GetDevTeamList();
 
             foreach (DevTeam team in listOfTeams)
@@ -275,8 +280,20 @@ namespace _01_KomodoInsurance_Console
         {
             ViewDeveloperList();
 
+
             Console.Clear();
             List<DevTeam> listOfTeams = _devTeamRepo.GetDevTeamList();
+
+            
+            foreach (DevTeam team in listOfTeams)
+            {
+                Console.WriteLine($"Team Name: {team.DevTeamName}\n" +
+                    $"Team ID: {team.DevTeamID}\n" +
+                    $"");
+            }
+            Console.WriteLine("For which team do you want to see members?  \n" +
+                "Please enter teamID");
+            string newT = Console.ReadLine().ToLower();
            
 
         }
@@ -288,20 +305,21 @@ namespace _01_KomodoInsurance_Console
             foreach (Developer developer in listOfDevelopers)
             {
                 string plural = developer.Pluralsight;
-                if (plural == "no")
-                {
-                    Console.WriteLine($"Name: {developer.FirstName} {developer.LastName}\n" +
+
+                    if (plural.Equals("no"))
+                    {
+                        Console.WriteLine($"Name: {developer.FirstName} {developer.LastName}\n" +
                 $"CompanyID: { developer.CompanyID}\n" +
                 $"Pluralsight: {developer.Pluralsight}\n" +
                 $"");
-                }
-                else
-                {
-                    break;  
-                }
-                Console.WriteLine("All Developers have Pluralsight");
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                    }
+                
             }
-
+            Console.WriteLine("All Developers have Pluralsight");
         }
         //Update Developer Information
         private void UpdateDeveloperInfo()
@@ -314,27 +332,37 @@ namespace _01_KomodoInsurance_Console
             
             // set the developer that you want changed
             string oldDeveloper = Console.ReadLine().ToLower();
-            
 
-            Developer newDeveloper = new Developer();
+
+            Developer newDeveloper = _developerRepo.GetMemberByID(oldDeveloper);
+            
+            // get updated developer info 
 
             Console.WriteLine("What is Developers first name: ");
-            newDeveloper.FirstName = Console.ReadLine().ToLower();
+            string firstName = Console.ReadLine().ToLower();
+            if (!firstName.Equals(""))
+            {
+                newDeveloper.FirstName = firstName;
+            }
 
             Console.WriteLine("What is Developers last name: ");
-            newDeveloper.LastName = Console.ReadLine().ToLower();
-
+            string lastName = Console.ReadLine().ToLower();
+            if (!lastName.Equals(""))
+            {
+                newDeveloper.LastName = lastName;
+            }
             Console.WriteLine("What is Developers Company ID: ");
-            newDeveloper.CompanyID = Console.ReadLine().ToLower();
-
+            string companyID = Console.ReadLine().ToLower();
+            if (!companyID.Equals(""))
+            {
+                newDeveloper.CompanyID = companyID;
+            }
             Console.WriteLine("Does the developer have Pluralsight: ");
-            newDeveloper.Pluralsight = Console.ReadLine().ToLower();
-
-            //add the new information on the developer
-            _developerRepo.AddDevelopersToList(newDeveloper);
-
-            //remove the old information on the developer
-            _developerRepo.RemoveDeveloperFromList(oldDeveloper);
+            string pluralsight = Console.ReadLine().ToLower();
+            if (!pluralsight.Equals(""))
+            {
+                newDeveloper.Pluralsight = pluralsight;
+            }
         }
         //Remove Developer from Team
         private void RemoveDeveloperFromTeam()
@@ -378,16 +406,7 @@ namespace _01_KomodoInsurance_Console
 
             bool wasDeleted = _devTeamRepo.RemoveDevTeamFromList(inputs);
 
-            //List<DevTeam> listOfTeams = _devTeamRepo.GetDevTeamList();
-
-            //foreach (DevTeam team in listOfTeams)
-            //{
-            //    Console.WriteLine($"Team Name: {team.DevTeamName}\n" +
-            //        $"Team ID: {team.DevTeamID}\n" +
-            //        $"");
-            //}
-
-            //Check to be sure content was removed
+            //show content was deleted
 
             if (wasDeleted == true)
             {
