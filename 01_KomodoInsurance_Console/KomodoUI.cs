@@ -219,31 +219,34 @@ namespace _01_KomodoInsurance_Console
                 }
             }
         }
+       
 
         //Add Team Members  
         private void AddTeamMembers()
         {
             //view teams
-            
+
 
             ViewTeamNames();
             List<DevTeam> listOfTeams = _devTeamRepo.GetDevTeamList();
 
-            Console.WriteLine("Which Team do you want to add memebers to?");
-            string newT = Console.ReadLine().ToLower();
-            
+            Console.WriteLine("Which Team ID do you want to add memebers to?");
+            string teamID = Console.ReadLine().ToLower();
+            Console.WriteLine("What is the team number?");
+            string newName = Console.ReadLine();
 
-                // view developers list
-                ViewDeveloperList();
 
-                Console.WriteLine("Which developer do you want to add?  Please give developers CompanyID");
-                string newD = Console.ReadLine().ToLower();
-            
-                //add developer to team
-                _devTeamRepo.AddDevelopersToTeam(newT, newD);
+            // view developers list
+            ViewDeveloperList();
 
-                //add team number to developer
+            Console.WriteLine("Which developer do you want to add?  Please give developers CompanyID");
+            string developerID = Console.ReadLine().ToLower();
 
+            //add developer to team
+            _devTeamRepo.AddDevelopersToTeam(teamID, developerID);
+
+            //add team number to developer
+           // _developerRepo   //  add to newD (newName,teamID)
         }
 
         //View List of Developers
@@ -281,7 +284,7 @@ namespace _01_KomodoInsurance_Console
             ViewDeveloperList();
 
 
-            Console.Clear();
+            //Console.Clear();
             List<DevTeam> listOfTeams = _devTeamRepo.GetDevTeamList();
 
             
@@ -289,7 +292,11 @@ namespace _01_KomodoInsurance_Console
             {
                 Console.WriteLine($"Team Name: {team.DevTeamName}\n" +
                     $"Team ID: {team.DevTeamID}\n" +
-                    $"");
+                    $"Members:");
+                foreach (Developer developer in team.Members)
+                {
+                    Console.Write($" {developer.FirstName} {developer.LastName}");
+                }
             }
             Console.WriteLine("For which team do you want to see members?  \n" +
                 "Please enter teamID");
